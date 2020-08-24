@@ -10,7 +10,7 @@ jobs:
   changes:
     runs-on: ubuntu-latest
     steps:
-      - id: Get files from pull request
+      - id: file_changes
         uses: trilom/file-changes-action@v1.2.3
       - name: test
         run: |
