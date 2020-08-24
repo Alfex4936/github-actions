@@ -17,5 +17,5 @@ jobs:
 
       - name: Dir workspace
         run: |
-          cd /github/workspace/
+          cd /home/runner/work/github-actions/github-actions
           dir
