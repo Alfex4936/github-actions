@@ -1,5 +1,11 @@
 name: Get a list of files on PR
-on: [pull_request]
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+    
 jobs:
   changes:
     runs-on: ubuntu-latest
