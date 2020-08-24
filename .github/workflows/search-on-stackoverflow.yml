@@ -1,0 +1,13 @@
+name: Search on stackoverflow
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  ask-stackoverflow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: neverendingqs/gh-action-ask-stackoverflow@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
