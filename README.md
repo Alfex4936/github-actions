@@ -11,7 +11,7 @@ This repository is just a test repo for testing github actions.
     * [Get a list of files changed on PR](#get-a-list-of-files-on-pr)
     * [Search on stackoverflow.com](#search-on-stackoverflowcom)
     * [Make a tag whenever the version changes](#make-a-tag-whenever-the-version-changes)
-    * [Where's my workspace](#where-my-workspace)
+    * [Where's my workspace](#wheres-my-workspace)
 </td></tr>
 </table>
 
