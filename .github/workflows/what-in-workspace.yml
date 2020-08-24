@@ -1,0 +1,21 @@
+name: What's in my workspace
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Dir workspace
+        run: |
+          cd /github/workspace/
+          dir
