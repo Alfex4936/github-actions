@@ -14,7 +14,8 @@ jobs:
           cat $HOME/files_modified.json
           cat $HOME/files_added.json
           cat $HOME/files_removed.json
-          echo 'FILES : ${{ steps.file_changes.outputs.files}}\n'
-          echo 'MODIFIED : ${{ steps.file_changes.outputs.files_modified}}\n'
-          echo 'ADDED : ${{ steps.file_changes.outputs.files_added}}\n'
-          echo 'REMOVED : ${{ steps.file_changes.outputs.files_removed}}\n'
+          echo ''
+          echo 'FILES : ${{ steps.file_changes.outputs.files}}'
+          echo 'MODIFIED : ${{ steps.file_changes.outputs.files_modified}}'
+          echo 'ADDED : ${{ steps.file_changes.outputs.files_added}}'
+          echo 'REMOVED : ${{ steps.file_changes.outputs.files_removed}}'
