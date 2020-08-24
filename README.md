@@ -11,6 +11,7 @@ This repository is just a test repo for testing github actions.
     * [Get a list of files changed on PR](#get-a-list-of-files-on-pr)
     * [Search on stackoverflow.com](#search-on-stackoverflowcom)
     * [Make a tag whenever the version changes](#make-a-tag-whenever-the-version-changes)
+    * [Where's my workspace](#where-my-workspace)
 </td></tr>
 </table>
 
@@ -134,4 +135,28 @@ jobs:
     - name: Run a one-line script
       run: echo Hello, world!
     ...
+```
+
+## [Where's my workspace](https://github.com/Alfex4936/github-actions/blob/master/.github/workflows/what-in-workspace.yml)
+
+This action echos in virtual enviornment(ubuntu) in your workspace (you can cd to your github files in $GITHUB_WORKSPACE)
+
+Result is [here](https://github.com/Alfex4936/github-actions/actions/runs/222176001)
+
+```yml
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Dir workspace
+        run: |
+          cd $GITHUB_WORKSPACE
+          dir
 ```
