@@ -71,22 +71,25 @@ This action echos a list of files in pull request in virtual environment
 Check out the result on [here](https://github.com/Alfex4936/github-actions/actions)
 
 ```yml
-on:
-  pull_request:
-    branches: [ master ]
+on: [push, pull_request]
     
 jobs:
-  build:
+  changes:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-    
-    - name: List files
-    run: |
-        URL="https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${{ github.event.pull_request.number }}/files"
-        FILES=$(curl -s -X GET -G $URL | jq -r '.[] | .filename')
-        echo $FILES
+      - id: file_changes
+        uses: trilom/file-changes-action@v1.2.3
+      - name: test
+        run: |
+          cat $HOME/files.json
+          cat $HOME/files_modified.json
+          cat $HOME/files_added.json
+          cat $HOME/files_removed.json
+          echo ''
+          echo 'FILES : ${{ steps.file_changes.outputs.files}}'
+          echo 'MODIFIED : ${{ steps.file_changes.outputs.files_modified}}'
+          echo 'ADDED : ${{ steps.file_changes.outputs.files_added}}'
+          echo 'REMOVED : ${{ steps.file_changes.outputs.files_removed}}'
 ```
 
 ## [Search on stackoverflow.com](https://github.com/Alfex4936/github-actions/blob/master/.github/workflows/search-on-stackoverflow.yml)
