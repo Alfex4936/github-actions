@@ -8,6 +8,7 @@ This repository is just a test repo for testing github actions.
 * Contents
     * [echo Hello in ubuntu](#echo-hello-in-ubuntu)
     * [Comment on Issues](#comment-on-issues)
+    * [Get a list of files changed on PR](#get-a-list-of-files-changed-on-pr)
     * [Search on stackoverflow.com](#search-on-stackoverflowcom)
     * [Make a tag whenever the version changes](#make-a-tag-whenever-the-version-changes)
 </td></tr>
@@ -61,6 +62,26 @@ jobs:
               repo: context.repo.repo,
               body: '👋 Thanks for reporting!'
             })
+```
+
+## [Get a list of files on PR](https://github.com/Alfex4936/github-actions/blob/master/.github/workflows/get-list-file-of-pr.yml)
+
+This action echos a list of files in pull request in virtual environment
+
+Check out the result on [here](https://github.com/Alfex4936/github-actions/actions)
+
+```yml
+on:
+  issue_comment:
+    types: [created]
+    
+jobs:
+  ask-stackoverflow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: neverendingqs/gh-action-ask-stackoverflow@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 ## [Search on stackoverflow.com](https://github.com/Alfex4936/github-actions/blob/master/.github/workflows/search-on-stackoverflow.yml)
