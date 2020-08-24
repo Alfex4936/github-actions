@@ -8,7 +8,7 @@ This repository is just a test repo for testing github actions.
 * Contents
     * [echo Hello in ubuntu](#echo-hello-in-ubuntu)
     * [Comment on Issues](#comment-on-issues)
-    * [Get a list of files changed on PR](#get-a-list-of-files-changed-on-pr)
+    * [Get a list of files changed on PR](#get-a-list-of-files-on-pr)
     * [Search on stackoverflow.com](#search-on-stackoverflowcom)
     * [Make a tag whenever the version changes](#make-a-tag-whenever-the-version-changes)
 </td></tr>
@@ -72,16 +72,21 @@ Check out the result on [here](https://github.com/Alfex4936/github-actions/actio
 
 ```yml
 on:
-  issue_comment:
-    types: [created]
+  pull_request:
+    branches: [ master ]
     
 jobs:
-  ask-stackoverflow:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: neverendingqs/gh-action-ask-stackoverflow@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+    - uses: actions/checkout@v2
+    
+    - name: List files
+    run: |
+        URL="https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${{ github.event.pull_request.number }}/files"
+        FILES=$(curl -s -X GET -G $URL | jq -r '.[] | .filename')
+        echo $FILES
 ```
 
 ## [Search on stackoverflow.com](https://github.com/Alfex4936/github-actions/blob/master/.github/workflows/search-on-stackoverflow.yml)
