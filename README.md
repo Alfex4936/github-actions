@@ -1,6 +1,6 @@
 # 👋 Github Actions
 
-This repository is just a test repo for testing github actions.
+This repository is just a test repo to test github actions.
 
 <table>
     <tr><td width=60% valign=top>
@@ -40,7 +40,7 @@ jobs:
 
 Testing an action from [@neverendingqs](https://github.com/neverendingqs)
 
-This action leaves a comment by a bot whenever someone makes a issue.
+This action leaves a comment by a bot whenever someone makes an issue.
 
 Result is [here](https://github.com/Alfex4936/github-actions/issues/1)
 
@@ -119,7 +119,7 @@ jobs:
 
 Testing an action from [@neverendingqs](https://github.com/neverendingqs)
 
-This action makes a tag in branch whenever we change the package version in package.json 
+This action makes a tag whenever we change the package version in package.json 
 
 Result is [here](https://github.com/Alfex4936/github-actions/tree/v0.0.2)
 
